@@ -1,0 +1,29 @@
+{
+  "solver": "ricci_numpy (pure-numpy reference, core)",
+  "edge_cap": 150,
+  "n_eligible_subset": 96,
+  "n_covered": 54,
+  "n_skipped_large": 42,
+  "coverage_note": "Dense graphs above the edge cap are infeasible for the pure-numpy reference; the fast path is the same exact algorithm and argmin-identical in 86/88 graphs <=400 edges (results/22). Conclusion below matches the fast-path result.",
+  "hit_rates_within1": {
+    "curvature": 0.2037037037037037,
+    "max_transition_energy": 0.2037037037037037,
+    "last_edge": 0.18518518518518517,
+    "random_expectation": 0.47644997463856015
+  },
+  "BAR_curvature_minus_mte": {
+    "delta": 0.0,
+    "ci_lo": -0.11111111111111113,
+    "ci_hi": 0.1111111111111111
+  },
+  "curvature_minus_random": {
+    "delta": -0.2727462709348565,
+    "ci_lo": -0.3757357417684118,
+    "ci_hi": -0.1614801704502759
+  },
+  "curvature_minus_last": {
+    "delta": 0.018518518518518517,
+    "ci_lo": -0.09259259259259259,
+    "ci_hi": 0.12962962962962962
+  }
+}

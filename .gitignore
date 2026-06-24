@@ -4,3 +4,6 @@ __pycache__/
 *.pyc
 RERUN_LOG.md
 results/extract_all.log
+results/run_d1.log
+results/run_d2.log
+results/run_d2ref.log

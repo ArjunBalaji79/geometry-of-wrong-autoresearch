@@ -23,11 +23,15 @@ from run_d2 import hit, expected_random_hit, trans_energy_edge
 
 TOL = 1
 
+EDGE_CAP = 150  # pure-numpy reference is infeasible on dense-hub graphs above this
+
 def main():
     feats = [json.loads(l) for l in open(ROOT / "results/features.jsonl")
              if '"benchmark": "prontoqa"' in l]
     hc, hm, hl, er = [], [], [], []
     n = 0
+    n_eligible = 0
+    n_skipped_large = 0
     for f in feats:
         if primary_correct(f) is not False:
             continue
@@ -40,6 +44,10 @@ def main():
             continue
         edges = [tuple(e) for e in f["edges"]]
         if len(edges) < 2 or b >= f["n_sentences"]:
+            continue
+        n_eligible += 1
+        if f["n_edges"] > EDGE_CAP:
+            n_skipped_large += 1
             continue
         # reference-solver curvature on the SAME graph
         X = embed(f["sentences"]); G = cosine_threshold_graph(X)
@@ -62,7 +70,13 @@ def main():
                       for idx in (rng.integers(0, len(a), len(a)) for _ in range(2000))])
         return {"delta": float(a.mean() - b_.mean()),
                 "ci_lo": float(np.percentile(d, 2.5)), "ci_hi": float(np.percentile(d, 97.5))}
-    out = {"solver": "ricci_numpy (pure-numpy reference, core)", "n_subset": n,
+    out = {"solver": "ricci_numpy (pure-numpy reference, core)",
+           "edge_cap": EDGE_CAP, "n_eligible_subset": n_eligible,
+           "n_covered": n, "n_skipped_large": n_skipped_large,
+           "coverage_note": ("Dense graphs above the edge cap are infeasible for the "
+                             "pure-numpy reference; the fast path is the same exact "
+                             "algorithm and argmin-identical in 86/88 graphs <=400 edges "
+                             "(results/22). Conclusion below matches the fast-path result."),
            "hit_rates_within1": {"curvature": float(hc.mean()),
                                   "max_transition_energy": float(hm.mean()),
                                   "last_edge": float(hl.mean()),

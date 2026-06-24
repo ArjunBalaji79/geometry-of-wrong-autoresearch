@@ -24,7 +24,7 @@ before paper.md.
 | 14 | D2 BAR: curvature ties max-transition-energy (CI includes 0) | `results/20_d2_localization.json` (`BAR_curvature_minus_mte`) | SC-D2 NOT met → tie |
 | 15 | D2: curvature significantly BELOW random | `results/20_d2_localization.json` (`curvature_minus_random` CI<0) | OK (key negative) |
 | 16 | D2: argmin edge identical under reference vs fast solver in 86/88 graphs; 2 differ at machine-epsilon curvature ties | `results/22_d2_backend_argmin_check.json` | SC-D2c partial; see #17 |
-| 17 | D2 conclusion solver-invariant: headline recomputed with pure-numpy reference argmin on the full subset | `results/23_d2_reference_solver.json` | confirms tie + below-random |
+| 17 | D2 conclusion solver-invariant: pure-numpy reference argmin on 54/96 graphs (≤150 edges) — curv 0.204 = MTE 0.204 (BAR Δ=0.0), ≪ random 0.476 | `results/23_d2_reference_solver.json` | confirms tie + below-random |
 
 ## Honest flags
 
