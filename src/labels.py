@@ -88,20 +88,68 @@ def folio_answer(s):
 
 
 # --- PrOntoQA asserted-property extraction (for M2 vs M3) --------------------
-def prontoqa_asserted_props(cot_text, entity):
-    """Positive kind-properties the trace asserts about the entity."""
-    props = set()
+def prontoqa_props_in_fragment(frag):
+    """Positive kind-props in a fragment (skip negated)."""
+    if re.search(r"\bnot\b", frag):
+        return set()
+    out = set()
+    for pm in re.finditer(r"[a-z]+pus", frag.lower()):
+        w = pm.group(0)
+        out.add(w[:-2] if w.endswith("puses") else w)
+    return out
+
+
+# A sentence is NOT a genuine assertion if it is interrogative / hypothetical /
+# a restatement of the query. The alignment audit (results/21_*) showed these
+# produce false broken-step locations (query restatements at sentence 0,
+# proof-by-contradiction "if X then Y", "we need to check if ..."). Excluding
+# them is the alignment correction; residual error is re-audited and bounded.
+_NONASSERT = re.compile(
+    r"\?|whether|the question|the statement|to determine|determine whether|"
+    r"\bif\b|assume|suppose|hypothe|let'?s\s|we need|need to|"
+    r"check if|could be|would be|can\s+(?:also\s+)?be|is it|does\s",
+    re.I)
+
+
+def _genuine_assertions(sentences, entity):
+    """
+    Yield (sent_idx, prop) for each positive entity-property the trace genuinely
+    ASSERTS (conclusions / derivations), excluding interrogative/hypothetical/
+    restatement sentences. Geometry-free.
+    """
     if not entity:
-        return props
-    for m in re.finditer(re.escape(entity) + r"\s+(?:is|must be|is also)\s+([^.\n]+)",
-                         cot_text, flags=re.I):
-        frag = m.group(1)
-        if re.search(r"\bnot\b", frag):
+        return
+    pat = re.compile(re.escape(entity) + r"\s+(?:is|must be|is also|are)\s+([^.\n]+)", re.I)
+    for i, s in enumerate(sentences):
+        if _NONASSERT.search(s):
             continue
-        for pm in re.finditer(r"[a-z]+pus", frag.lower()):
-            w = pm.group(0)
-            props.add(w[:-2] if w.endswith("puses") else w)
-    return props
+        for m in pat.finditer(s):
+            for p in prontoqa_props_in_fragment(m.group(1)):
+                yield i, p
+
+
+def prontoqa_broken_sentence(sentences, entity, derived):
+    """
+    Index of the FIRST genuine assertion of an entity-property NOT in the gold
+    derived set (the first invalid inference). (idx, prop) or (None, None).
+    """
+    dset = set(derived)
+    for i, p in _genuine_assertions(sentences, entity):
+        if p not in dset:
+            return i, p
+    return None, None
+
+
+def prontoqa_asserted_props(cot_text, entity):
+    """
+    Positive kind-properties the trace GENUINELY asserts about the entity
+    (conclusions/derivations only), excluding interrogative/hypothetical/
+    restatement sentences. Operates on sentence-split text for the filter.
+    """
+    if not entity:
+        return set()
+    sents = re.split(r"(?<=[.!?])\s+|\n+", cot_text)
+    return {p for _, p in _genuine_assertions(sents, entity)}
 
 
 # --- correctness source policy ----------------------------------------------
