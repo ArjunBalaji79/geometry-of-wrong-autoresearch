@@ -1,0 +1,6 @@
+# local caches / scratch — regenerable, not part of the artifact
+data/embeddings_cache/
+__pycache__/
+*.pyc
+RERUN_LOG.md
+results/extract_all.log

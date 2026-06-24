@@ -1,0 +1,143 @@
+{
+  "tau_rel": 0.5,
+  "policy": "correctness: released flag for gsm8k/folio, engine for prontoqa",
+  "recomputed_vs_released_agreement": {
+    "folio/claude_sonnet": {
+      "agree": 200,
+      "total": 200,
+      "rate": 1.0
+    },
+    "folio/gemini_2_5_flash": {
+      "agree": 195,
+      "total": 195,
+      "rate": 1.0
+    },
+    "folio/gpt_4o_mini": {
+      "agree": 200,
+      "total": 200,
+      "rate": 1.0
+    },
+    "folio/gpt_oss_120b": {
+      "agree": 168,
+      "total": 168,
+      "rate": 1.0
+    },
+    "folio/llama_3_1_8b": {
+      "agree": 200,
+      "total": 200,
+      "rate": 1.0
+    },
+    "folio/mistral_7b": {
+      "agree": 195,
+      "total": 195,
+      "rate": 1.0
+    },
+    "folio__ALL": {
+      "agree": 1158,
+      "total": 1158,
+      "rate": 1.0
+    },
+    "gsm8k/claude_sonnet": {
+      "agree": 171,
+      "total": 200,
+      "rate": 0.855
+    },
+    "gsm8k/gemini_2_5_flash": {
+      "agree": 200,
+      "total": 200,
+      "rate": 1.0
+    },
+    "gsm8k/gpt_4o_mini": {
+      "agree": 200,
+      "total": 200,
+      "rate": 1.0
+    },
+    "gsm8k/gpt_oss_120b": {
+      "agree": 110,
+      "total": 200,
+      "rate": 0.55
+    },
+    "gsm8k/llama_3_1_8b": {
+      "agree": 172,
+      "total": 200,
+      "rate": 0.86
+    },
+    "gsm8k/mistral_7b": {
+      "agree": 194,
+      "total": 200,
+      "rate": 0.97
+    },
+    "gsm8k__ALL": {
+      "agree": 1047,
+      "total": 1200,
+      "rate": 0.8725
+    },
+    "prontoqa/claude_sonnet": {
+      "agree": 139,
+      "total": 200,
+      "rate": 0.695
+    },
+    "prontoqa/gemini_2_5_flash": {
+      "agree": 176,
+      "total": 196,
+      "rate": 0.898
+    },
+    "prontoqa/gpt_4o_mini": {
+      "agree": 180,
+      "total": 200,
+      "rate": 0.9
+    },
+    "prontoqa/gpt_oss_120b": {
+      "agree": 128,
+      "total": 143,
+      "rate": 0.8951
+    },
+    "prontoqa/llama_3_1_8b": {
+      "agree": 156,
+      "total": 196,
+      "rate": 0.7959
+    },
+    "prontoqa/mistral_7b": {
+      "agree": 182,
+      "total": 200,
+      "rate": 0.91
+    },
+    "prontoqa__ALL": {
+      "agree": 961,
+      "total": 1135,
+      "rate": 0.8467
+    }
+  },
+  "primary_correct_counts": {
+    "folio": {
+      "true": 732,
+      "false": 426
+    },
+    "gsm8k": {
+      "true": 865,
+      "false": 335
+    },
+    "prontoqa": {
+      "true": 745,
+      "false": 390
+    }
+  },
+  "mode_distribution": {
+    "folio": {
+      "M3_misplan": 198,
+      "M1_abstain": 144,
+      "M2_local_slip": 84
+    },
+    "gsm8k": {
+      "M2_local_slip": 231,
+      "M3_misplan": 98,
+      "M1_abstain": 6
+    },
+    "prontoqa": {
+      "M3_misplan": 181,
+      "M1_abstain": 162,
+      "M2_local_slip": 47
+    }
+  },
+  "unrecoverable_prontoqa": {}
+}

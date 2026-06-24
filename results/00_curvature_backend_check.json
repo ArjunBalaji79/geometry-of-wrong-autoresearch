@@ -1,0 +1,6 @@
+{
+  "n_graphs": 69,
+  "n_edges_checked": 8068,
+  "max_abs_diff_fast_vs_reference": 1.3322676295501878e-15,
+  "bit_exact": false
+}

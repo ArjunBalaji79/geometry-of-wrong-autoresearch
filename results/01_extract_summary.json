@@ -1,0 +1,92 @@
+{
+  "elapsed_sec": 3005.53981590271,
+  "n_written": 3493,
+  "totals": {
+    "raw": 3600,
+    "kept": 3493,
+    "excl_truncation": 15,
+    "drop_too_few_sentences": 92
+  },
+  "per_cell": {
+    "folio/claude_sonnet": {
+      "raw": 200,
+      "kept": 200
+    },
+    "folio/gemini_2_5_flash": {
+      "raw": 200,
+      "kept": 195,
+      "excl_truncation": 5
+    },
+    "folio/gpt_4o_mini": {
+      "raw": 200,
+      "kept": 200
+    },
+    "folio/gpt_oss_120b": {
+      "raw": 200,
+      "drop_too_few_sentences": 31,
+      "kept": 168,
+      "excl_truncation": 1
+    },
+    "folio/llama_3_1_8b": {
+      "raw": 200,
+      "kept": 200
+    },
+    "folio/mistral_7b": {
+      "raw": 200,
+      "kept": 195,
+      "drop_too_few_sentences": 5
+    },
+    "gsm8k/claude_sonnet": {
+      "raw": 200,
+      "kept": 200
+    },
+    "gsm8k/gemini_2_5_flash": {
+      "raw": 200,
+      "kept": 200
+    },
+    "gsm8k/gpt_4o_mini": {
+      "raw": 200,
+      "kept": 200
+    },
+    "gsm8k/gpt_oss_120b": {
+      "raw": 200,
+      "kept": 200
+    },
+    "gsm8k/llama_3_1_8b": {
+      "raw": 200,
+      "kept": 200
+    },
+    "gsm8k/mistral_7b": {
+      "raw": 200,
+      "kept": 200
+    },
+    "prontoqa/claude_sonnet": {
+      "raw": 200,
+      "kept": 200
+    },
+    "prontoqa/gemini_2_5_flash": {
+      "raw": 200,
+      "kept": 196,
+      "excl_truncation": 4
+    },
+    "prontoqa/gpt_4o_mini": {
+      "raw": 200,
+      "kept": 200
+    },
+    "prontoqa/gpt_oss_120b": {
+      "raw": 200,
+      "kept": 143,
+      "drop_too_few_sentences": 56,
+      "excl_truncation": 1
+    },
+    "prontoqa/llama_3_1_8b": {
+      "raw": 200,
+      "kept": 196,
+      "excl_truncation": 4
+    },
+    "prontoqa/mistral_7b": {
+      "raw": 200,
+      "kept": 200
+    }
+  }
+}

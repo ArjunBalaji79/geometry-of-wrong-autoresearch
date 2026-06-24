@@ -1,0 +1,35 @@
+{
+  "description": "PrOntoQA released-flag reliability vs forward-chaining engine",
+  "rows": [
+    {
+      "model": "claude_sonnet",
+      "flagTrue_model_eq_gold": "133/146",
+      "flagFalse_model_neq_gold": "4/52"
+    },
+    {
+      "model": "gpt_4o_mini",
+      "flagTrue_model_eq_gold": "159/175",
+      "flagFalse_model_neq_gold": "21/25"
+    },
+    {
+      "model": "mistral_7b",
+      "flagTrue_model_eq_gold": "76/81",
+      "flagFalse_model_neq_gold": "97/110"
+    },
+    {
+      "model": "gemini_2_5_flash",
+      "flagTrue_model_eq_gold": "172/188",
+      "flagFalse_model_neq_gold": "5/9"
+    },
+    {
+      "model": "llama_3_1_8b",
+      "flagTrue_model_eq_gold": "71/78",
+      "flagFalse_model_neq_gold": "39/72"
+    },
+    {
+      "model": "gpt_oss_120b",
+      "flagTrue_model_eq_gold": "21/24",
+      "flagFalse_model_neq_gold": "2/15"
+    }
+  ]
+}
