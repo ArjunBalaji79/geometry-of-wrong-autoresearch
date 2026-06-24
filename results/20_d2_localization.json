@@ -1,0 +1,63 @@
+{
+  "n_subset": 96,
+  "hit_rates_within1": {
+    "curvature": 0.1875,
+    "max_transition_energy": 0.14583333333333334,
+    "last_edge": 0.15625,
+    "random_expectation": 0.3643821227554411
+  },
+  "hit_rates_strict": {
+    "curvature": 0.03125,
+    "max_transition_energy": 0.020833333333333332
+  },
+  "BAR_curvature_minus_mte": {
+    "delta": 0.04166666666666666,
+    "ci_lo": -0.04166666666666666,
+    "ci_hi": 0.125,
+    "frac_gt0": 0.803
+  },
+  "curvature_minus_random": {
+    "delta": -0.17688212275544107,
+    "ci_lo": -0.2514718467379536,
+    "ci_hi": -0.09592271217231213,
+    "frac_gt0": 0.0005
+  },
+  "curvature_minus_last": {
+    "delta": 0.03125,
+    "ci_lo": -0.041666666666666685,
+    "ci_hi": 0.10416666666666667,
+    "frac_gt0": 0.759
+  },
+  "per_model": {
+    "claude_sonnet": {
+      "n": 15,
+      "curv": 0.0,
+      "mte": 0.0
+    },
+    "gemini_2_5_flash": {
+      "n": 17,
+      "curv": 0.17647058823529413,
+      "mte": 0.0
+    },
+    "gpt_4o_mini": {
+      "n": 22,
+      "curv": 0.18181818181818182,
+      "mte": 0.2727272727272727
+    },
+    "gpt_oss_120b": {
+      "n": 5,
+      "curv": 0.6,
+      "mte": 0.4
+    },
+    "llama_3_1_8b": {
+      "n": 20,
+      "curv": 0.25,
+      "mte": 0.15
+    },
+    "mistral_7b": {
+      "n": 17,
+      "curv": 0.17647058823529413,
+      "mte": 0.17647058823529413
+    }
+  }
+}

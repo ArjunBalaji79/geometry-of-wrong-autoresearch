@@ -1,0 +1,52 @@
+{
+  "indist_binary_auc_geom9": 0.5559985339299507,
+  "points": [
+    {
+      "held_out": "gsm8k",
+      "binary_ood_drop": 0.050654732704862315,
+      "mode_mix_JS_div": 0.14452701811797852,
+      "train_mix": [
+        306,
+        231,
+        279
+      ],
+      "test_mix": [
+        6,
+        231,
+        98
+      ]
+    },
+    {
+      "held_out": "folio",
+      "binary_ood_drop": 0.04415561851395744,
+      "mode_mix_JS_div": 0.059857630191541354,
+      "train_mix": [
+        168,
+        378,
+        179
+      ],
+      "test_mix": [
+        144,
+        84,
+        198
+      ]
+    },
+    {
+      "held_out": "prontoqa",
+      "binary_ood_drop": 0.12898080892564856,
+      "mode_mix_JS_div": 0.034301872571712626,
+      "train_mix": [
+        150,
+        315,
+        296
+      ],
+      "test_mix": [
+        162,
+        147,
+        81
+      ]
+    }
+  ],
+  "pearson_r_n3": -0.6272681177137572,
+  "note": "n=3 LODO folds; descriptive only."
+}

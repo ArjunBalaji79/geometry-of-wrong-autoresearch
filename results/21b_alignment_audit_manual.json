@@ -1,0 +1,20 @@
+{
+  "what": "Manual audit of the D2 broken-step alignment on a random sample of the primary (cleanest-detector) subset, to bound sentence-to-step alignment error.",
+  "auditor": "autonomous agent (single rater)",
+  "criterion": "A located broken sentence is CORRECT iff it genuinely contains an AFFIRMATIVE assertion that the entity has a property not derivable under the gold ontology (a real invalid inference). FALSE if it is a rule restatement, a negated/uncertain statement, a question/hypothetical, or the property was extracted from an embedded rule clause rather than asserted of the entity.",
+  "sample_size": 30,
+  "n_correct": 28,
+  "n_false_positive": 2,
+  "alignment_accuracy": 0.9333,
+  "false_positives": [
+    {"idx": 19, "case": "llama_3_1_8b/p12",
+     "text": "However, we can conclude that Fae is a numpus and a gorpus, and lempuses are vumpuses, shumpuses, and gorpuses.",
+     "why": "invalid_prop 'lempus' was extracted from the plural rule clause 'lempuses are ...', not asserted of Fae."},
+    {"idx": 26, "case": "llama_3_1_8b/p165",
+     "text": "We already know Wren is a sterpus, so it must be either a brimpus or a shumpus.",
+     "why": "disjunctive uncertainty ('either ... or'); not a definite affirmative assertion."}
+  ],
+  "residual_error_modes": ["plural rule-subject clause ('<kind>uses are ...')",
+                            "'either X or Y' uncertain disjunction"],
+  "interpretation": "Alignment accuracy ~93%. The residual ~7% error shifts the broken-step index b for a few traces; because it applies to the broken-step gold (shared by ALL methods), it perturbs every method's hit-rate roughly equally and does not bias the paired CURVATURE-vs-MAX_TRANSITION_ENERGY / vs-RANDOM comparisons. The successive detector hardening (181 -> 140 -> 96 traces) was driven solely by this accuracy criterion and moved the BAR result AGAINST the hypothesis (curv>MTE became a tie), i.e. opposite to p-hacking."
+}

@@ -134,9 +134,9 @@
       "M1_abstain": 6
     },
     "prontoqa": {
-      "M3_misplan": 181,
-      "M1_abstain": 162,
-      "M2_local_slip": 47
+      "M2_local_slip": 147,
+      "M3_misplan": 81,
+      "M1_abstain": 162
     }
   },
   "unrecoverable_prontoqa": {}

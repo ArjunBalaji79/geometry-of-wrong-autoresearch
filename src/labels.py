@@ -107,15 +107,27 @@ def prontoqa_props_in_fragment(frag):
 _NONASSERT = re.compile(
     r"\?|whether|the question|the statement|to determine|determine whether|"
     r"\bif\b|assume|suppose|hypothe|let'?s\s|we need|need to|"
-    r"check if|could be|would be|can\s+(?:also\s+)?be|is it|does\s",
+    r"check if|could be|would be|can\s+(?:also\s+)?be|is it|does\s|"
+    # negation / uncertainty / abstention (model is NOT affirming the property)
+    r"can\s?not|can't|cannot|no evidence|no information|don'?t have|"
+    r"do not have|not enough|not sure|don'?t know|do not know|unable|"
+    r"isn'?t|is not|are not|aren'?t|never\b|without any",
     re.I)
+
+# Justification-clause connectors: props appearing AFTER these inside an
+# assertion are part of the cited rule, not the property being asserted of the
+# entity. Truncate the asserted fragment here so we don't grab rule-text props.
+_JUSTIFY = re.compile(r"\(|\bsince\b|\bbecause\b|\bas per\b|\baccording\b|"
+                      r"\beverything that\b|\bevery\b|\beach\b|\bfrom (?:rule|premise|the)\b|"
+                      r", and we (?:know|have)", re.I)
 
 
 def _genuine_assertions(sentences, entity):
     """
     Yield (sent_idx, prop) for each positive entity-property the trace genuinely
-    ASSERTS (conclusions / derivations), excluding interrogative/hypothetical/
-    restatement sentences. Geometry-free.
+    and affirmatively ASSERTS (conclusions / derivations), excluding
+    interrogative / hypothetical / negated / uncertain / restatement sentences,
+    and stripping embedded rule-justification clauses. Geometry-free.
     """
     if not entity:
         return
@@ -124,7 +136,11 @@ def _genuine_assertions(sentences, entity):
         if _NONASSERT.search(s):
             continue
         for m in pat.finditer(s):
-            for p in prontoqa_props_in_fragment(m.group(1)):
+            frag = m.group(1)
+            j = _JUSTIFY.search(frag)          # keep only the asserted clause
+            if j:
+                frag = frag[:j.start()]
+            for p in prontoqa_props_in_fragment(frag):
                 yield i, p
 
 

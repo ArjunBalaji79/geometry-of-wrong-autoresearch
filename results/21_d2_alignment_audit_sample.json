@@ -1,0 +1,242 @@
+[
+  {
+    "model": "claude_sonnet",
+    "problem_idx": 52,
+    "broken_sentence_idx": 12,
+    "invalid_prop": "jompus",
+    "broken_sentence_text": "- From rule 1: Stella is a jompus, a sterpus, and a yumpus",
+    "prev_sentence": "Since Stella is an impus:"
+  },
+  {
+    "model": "claude_sonnet",
+    "problem_idx": 92,
+    "broken_sentence_idx": 12,
+    "invalid_prop": "yumpus",
+    "broken_sentence_text": "- From rule 1: Polly is a yumpus (since each tumpus is a yumpus)",
+    "prev_sentence": "Since Polly is a tumpus:"
+  },
+  {
+    "model": "claude_sonnet",
+    "problem_idx": 109,
+    "broken_sentence_idx": 11,
+    "invalid_prop": "yumpus",
+    "broken_sentence_text": "- Therefore: Polly is a yumpus",
+    "prev_sentence": "- From \"Everything that is a rompus and a zumpus and a tumpus is a yumpus\""
+  },
+  {
+    "model": "claude_sonnet",
+    "problem_idx": 122,
+    "broken_sentence_idx": 8,
+    "invalid_prop": "lorpus",
+    "broken_sentence_text": "- From \"Each rompus is a shumpus and a brimpus and a lorpus\" \u2192 Sam is a shumpus, a brimpus, and a lorpus",
+    "prev_sentence": "Since Sam is a rompus:"
+  },
+  {
+    "model": "claude_sonnet",
+    "problem_idx": 191,
+    "broken_sentence_idx": 6,
+    "invalid_prop": "dumpus",
+    "broken_sentence_text": "\u2192 Polly is a dumpus",
+    "prev_sentence": "Since Polly is a yumpus, and \"Everything that is a yumpus, a grimpus, or a brimpus is a dumpus\""
+  },
+  {
+    "model": "gemini_2_5_flash",
+    "problem_idx": 92,
+    "broken_sentence_idx": 7,
+    "invalid_prop": "yumpus",
+    "broken_sentence_text": "We have established in step 3 that \"Polly is a yumpus\" is true.",
+    "prev_sentence": "For an \"OR\" statement to be true, at least one of its components must be true."
+  },
+  {
+    "model": "gemini_2_5_flash",
+    "problem_idx": 109,
+    "broken_sentence_idx": 18,
+    "invalid_prop": "yumpus",
+    "broken_sentence_text": "*   Since Polly is a rompus, a zumpus, and a tumpus, it logically follows that **Polly is a yumpus**.",
+    "prev_sentence": "*   Polly is a tumpus. (Yes, from known facts)"
+  },
+  {
+    "model": "gpt_4o_mini",
+    "problem_idx": 30,
+    "broken_sentence_idx": 11,
+    "invalid_prop": "grimpus",
+    "broken_sentence_text": "- Additionally, since Sam is a **numpus**, by Premise 1, Sam is also a grimpus.",
+    "prev_sentence": "- Since Sam is a **rompus**, according to Premise 1, Sam is a grimpus."
+  },
+  {
+    "model": "gpt_4o_mini",
+    "problem_idx": 52,
+    "broken_sentence_idx": 15,
+    "invalid_prop": "jompus",
+    "broken_sentence_text": "From the first premise, since Stella is an impus, she must also be a jompus, a sterpus, and a yumpus.",
+    "prev_sentence": "- Since Stella is an impus, we can apply the first premise."
+  },
+  {
+    "model": "gpt_4o_mini",
+    "problem_idx": 54,
+    "broken_sentence_idx": 17,
+    "invalid_prop": "wumpus",
+    "broken_sentence_text": "- Since Wumpuses include tumpuses, and Rex is classified as a tumpus, it follows that Rex must also be a wumpus.",
+    "prev_sentence": "4. **Wumpus Classification**:"
+  },
+  {
+    "model": "gpt_4o_mini",
+    "problem_idx": 71,
+    "broken_sentence_idx": 11,
+    "invalid_prop": "grimpus",
+    "broken_sentence_text": "- Stella is a grimpus.",
+    "prev_sentence": "- Stella is a lempus, a gorpus, and a sterpus."
+  },
+  {
+    "model": "gpt_4o_mini",
+    "problem_idx": 92,
+    "broken_sentence_idx": 11,
+    "invalid_prop": "lorpus",
+    "broken_sentence_text": "- Since Polly is a tumpus, by definition, she is also a yumpus, a gorpus, and a lorpus.",
+    "prev_sentence": "3. **Implications of Polly being a tumpus**:"
+  },
+  {
+    "model": "gpt_4o_mini",
+    "problem_idx": 101,
+    "broken_sentence_idx": 2,
+    "invalid_prop": "gorpus",
+    "broken_sentence_text": "- Since Sam is a wumpus, Sam is a gorpus.",
+    "prev_sentence": "1. **Premise 1**: Everything that is a zumpus or a vumpus or a wumpus is a gorpus."
+  },
+  {
+    "model": "gpt_4o_mini",
+    "problem_idx": 109,
+    "broken_sentence_idx": 10,
+    "invalid_prop": "yumpus",
+    "broken_sentence_text": "Since Polly is a rompus, zumpus, and tumpus, she is a yumpus.",
+    "prev_sentence": "- Everything that is a rompus and a zumpus and a tumpus is a yumpus."
+  },
+  {
+    "model": "gpt_4o_mini",
+    "problem_idx": 110,
+    "broken_sentence_idx": 14,
+    "invalid_prop": "lorpus",
+    "broken_sentence_text": "- Stella is a lorpus.",
+    "prev_sentence": "- Stella is an impus, a brimpus, and a yumpus."
+  },
+  {
+    "model": "gpt_4o_mini",
+    "problem_idx": 122,
+    "broken_sentence_idx": 17,
+    "invalid_prop": "lorpus",
+    "broken_sentence_text": "- Since Sam is a rompus, he is also a shumpus, a brimpus, and a lorpus (by the definition of rompus).",
+    "prev_sentence": "4. **From the definition of a rompus:**"
+  },
+  {
+    "model": "gpt_4o_mini",
+    "problem_idx": 162,
+    "broken_sentence_idx": 18,
+    "invalid_prop": "shumpus",
+    "broken_sentence_text": "- Therefore, since Sam is a sterpus, he must also be a shumpus.",
+    "prev_sentence": "- Since Sam is a sterpus (from being a numpus), he is also a lempus, shumpus, and jompus (as everything that is a sterpus is a lempus, shumpus, and jompus)."
+  },
+  {
+    "model": "gpt_4o_mini",
+    "problem_idx": 163,
+    "broken_sentence_idx": 16,
+    "invalid_prop": "gorpus",
+    "broken_sentence_text": "- Additionally, since Wren is a yumpus, it also confirms that Wren is a gorpus (as everything that is a yumpus is a gorpus).",
+    "prev_sentence": "- Since Wren is a dumpus, according to the first premise, Wren must also be a gorpus (because everything that is a dumpus is a gorpus)."
+  },
+  {
+    "model": "gpt_oss_120b",
+    "problem_idx": 29,
+    "broken_sentence_idx": 2,
+    "invalid_prop": "zumpus",
+    "broken_sentence_text": "Therefore, by the universal rule, Wren must be a zumpus.",
+    "prev_sentence": "Wren is explicitly given as a wumpus, a lorpus, and a tumpus."
+  },
+  {
+    "model": "llama_3_1_8b",
+    "problem_idx": 12,
+    "broken_sentence_idx": 25,
+    "invalid_prop": "lempus",
+    "broken_sentence_text": "However, we can conclude that Fae is a numpus and a gorpus, and lempuses are vumpuses, shumpuses, and gorpuses.",
+    "prev_sentence": "However, we cannot directly conclude whether Fae is a lempus or not from the given premises."
+  },
+  {
+    "model": "llama_3_1_8b",
+    "problem_idx": 30,
+    "broken_sentence_idx": 10,
+    "invalid_prop": "grimpus",
+    "broken_sentence_text": "Since Sam is a rompus and a numpus, it follows that Sam is a grimpus.",
+    "prev_sentence": "From Premise 1, we know that everything that is a rompus, a numpus, or a dumpus is a grimpus."
+  },
+  {
+    "model": "llama_3_1_8b",
+    "problem_idx": 66,
+    "broken_sentence_idx": 31,
+    "invalid_prop": "gorpus",
+    "broken_sentence_text": "Wren is a gorpus. (From 18 and 19 by definition)",
+    "prev_sentence": "20."
+  },
+  {
+    "model": "llama_3_1_8b",
+    "problem_idx": 109,
+    "broken_sentence_idx": 43,
+    "invalid_prop": "grimpus",
+    "broken_sentence_text": "Therefore, Polly is a vumpus, a grimpus, and a brimpus.",
+    "prev_sentence": "From premise 7, we know that every yumpus is a vumpus and a grimpus and a brimpus."
+  },
+  {
+    "model": "llama_3_1_8b",
+    "problem_idx": 118,
+    "broken_sentence_idx": 17,
+    "invalid_prop": "jompus",
+    "broken_sentence_text": "Therefore, Sally is a jompus or a gorpus or a numpus.",
+    "prev_sentence": "Since Sally is a sterpus, and every sterpus is a gorpus, Sally is also a gorpus."
+  },
+  {
+    "model": "llama_3_1_8b",
+    "problem_idx": 134,
+    "broken_sentence_idx": 31,
+    "invalid_prop": "numpus",
+    "broken_sentence_text": "Therefore, Wren is a numpus. (Modus Ponens, from 19 and 14)",
+    "prev_sentence": "20."
+  },
+  {
+    "model": "llama_3_1_8b",
+    "problem_idx": 147,
+    "broken_sentence_idx": 18,
+    "invalid_prop": "shumpus",
+    "broken_sentence_text": "Since Rex is a rompus, we can conclude that Rex is a shumpus.",
+    "prev_sentence": "From premise 8, we know each rompus is a shumpus."
+  },
+  {
+    "model": "llama_3_1_8b",
+    "problem_idx": 165,
+    "broken_sentence_idx": 35,
+    "invalid_prop": "shumpus",
+    "broken_sentence_text": "We already know Wren is a sterpus, so it must be either a brimpus or a shumpus.",
+    "prev_sentence": "Since Wren is a lorpus and a sterpus, it must be one of these three categories."
+  },
+  {
+    "model": "llama_3_1_8b",
+    "problem_idx": 179,
+    "broken_sentence_idx": 37,
+    "invalid_prop": "tumpus",
+    "broken_sentence_text": "Therefore, Wren is a tumpus. (Modus Ponens)",
+    "prev_sentence": "23."
+  },
+  {
+    "model": "llama_3_1_8b",
+    "problem_idx": 191,
+    "broken_sentence_idx": 16,
+    "invalid_prop": "dumpus",
+    "broken_sentence_text": "Since Polly is a yumpus, a jompus, and a grimpus, Polly is a dumpus.",
+    "prev_sentence": "From Premise 1, we know that everything that is a yumpus, a grimpus, or a brimpus is a dumpus."
+  },
+  {
+    "model": "mistral_7b",
+    "problem_idx": 44,
+    "broken_sentence_idx": 2,
+    "invalid_prop": "numpus",
+    "broken_sentence_text": "So, Alex is a numpus.",
+    "prev_sentence": "We know that every wumpus is a numpus, and Alex is a jompus, which is a type of wumpus (since every wumpus is a numpus)."
+  }
+]
