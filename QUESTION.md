@@ -12,7 +12,7 @@ six models, temperature-0 English traces.
   correct/incorrect and tagged by (model, benchmark, problem_idx). Schema in the
   repo's data README.
 - feature pipeline : the existing feature-extraction code in this repo (locate it
-  under `scripts/`). It computes the 9-dimensional geometric signature per trace:
+  under `code/` or `geom/`). It computes the 9-dimensional geometric signature per trace:
   5 spectral (spectral entropy, Fiedler value, graph Rayleigh smoothness, spectral
   high-frequency score, high-frequency energy ratio) + 4 Ollivier-Ricci (mean
   kappa, std kappa, frac-negative, min kappa), over a sentence-level cosine
