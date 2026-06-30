@@ -1,45 +1,40 @@
-# Pre-Run Predictions (committed BEFORE running the agent)
+# Pre-Run Predictions, Scored
 
-Recorded: 2026-06-24
-Author: Arjun Balaji
-Harness: custom autoresearch harness (AUTORESEARCH.md) driving Claude Code,
-Claude Opus 4.8, extended thinking high.
-Scope handed to agent: D1 + D2, corpus (data/traces) + ricci-numpy + QUESTION.md,
-no prior papers.
+Recorded before the run: 2026-06-24. Scored after: 2026-06-25.
+Harness: custom AUTORESEARCH.md driving Claude Code (Opus, Auto mode).
+Scope: D1 + D2, corpus + ricci-numpy + QUESTION.md, no papers.
 
-Why this file exists: the reflection (deck section 6) is graded on whether I updated
-my model of what's worth working on. I can't show an update without a recorded prior.
-Score each line HIT / MISS / PARTIAL after the run.
+The honest summary: I bet the agent would reproduce execution and faceplant on the
+judgment layer. It mostly did not faceplant. It reproduced the execution AND ran the
+controls that matter AND caught a data bug I had missed. The one judgment failure was
+trusting its own oracle, which I only found by auditing it afterward.
 
-## What I expect the agent to do WELL (the automatable layer)
-- [ ] Re-run the 9-dim extraction and train classifiers under problem-grouped CV.   [ / ]
-- [ ] Produce the D1 in-distribution mode and binary numbers.                        [ / ]
-- [ ] Compute D2 argmin-curvature localization and the baseline comparison.          [ / ]
-- [ ] Generate bootstrap CIs and a permutation null.                                 [ / ]
+## What I expected the agent to do WELL (automatable layer)
+- [HIT] Re-run 9-dim extraction and train classifiers under problem-grouped CV.
+- [HIT] Produce D1 in-distribution mode and binary numbers.
+- [HIT] Compute D2 argmin-curvature localization and the baseline comparison.
+- [HIT] Generate bootstrap CIs and a permutation null.
 
-## What I expect the agent to BOTCH (the judgment layer)
-- [ ] Defines a plausible but CIRCULAR failure-mode taxonomy (modes defined in
-      terms of the features it then classifies with).                                [ / ]
-- [ ] Claims D1 mode-transfer beats binary-transfer but SKIPS or weakens the
-      surface-residualized length+repetition baseline, leaving the confound open.    [ / ]
-- [ ] D2: compares curvature only to weak baselines, never runs the
-      max-transition-energy MARGIN properly; "localization" stays a redescription.   [ / ]
-- [ ] Reaches for an approximate curvature solver or doesn't grasp why exactness
-      is load-bearing for argmin / frac-negative threshold.                          [ / ]
-- [ ] Treats LLM-judge mode labels as ground truth; no human gold, no PrOntoQA
-      structural anchor; label circularity left wide open.                           [ / ]
-- [ ] Skips sentence-to-step alignment error bounding entirely.                       [ / ]
-- [ ] Overclaims the over-squashing connection as mechanism, not analogy.            [ / ]
+## What I expected the agent to BOTCH (judgment layer)
+- [MISS] Circular failure-mode taxonomy. It built a geometry-free taxonomy on purpose
+  to avoid exactly this.
+- [MISS] Skips/weakens the surface-residualized baseline. It ran it. That control is
+  what killed my D1 headline.
+- [MISS] Never runs the max-transition-energy margin for D2. It ran it as the bar.
+- [MISS] Reaches for an approximate curvature solver. It used exact ricci-numpy and
+  verified bit-exactness to 1.3e-15.
+- [PARTIAL] Label circularity left open. It did not use LLM-judge labels; it built a
+  forward-chaining oracle. But it then treated that oracle as ground truth without
+  upstream-gold validation, which is the same sin one level up. Half right.
+- [MISS] Skips sentence-to-step alignment error bounding. It did a manual audit (~93%).
+- [HIT] Overclaims over-squashing as mechanism rather than analogy.
 
 ## My single advance bet
-The agent reproduces the screening-sprint layer (D1/D2 execution) competently and
-fails on exactly the judgment scaffolding I named in my proposal's "what only I can
-do" section. If true, that is the section 6 verdict, with evidence.
+[MISS, in my favor and against my ego] I bet the agent would faceplant on the judgment
+scaffolding I named in my proposal's "what only I can do" section. It mostly did not.
+The judgment layer that DID stay human was narrower than I claimed: deciding the oracle
+needed upstream validation, reading 0.980 as saturation not transfer, deciding how far
+each claim retreats, and catching the agent's own oracle bugs on audit. Reproduction and
+even debugging were automatable. Interpretation of what a corrected result means was not.
 
-If WRONG (agent also handles taxonomy / labels / margin cleanly): the question is
-more automatable than I claimed, and the revised plan recenters on D3 (repair) +
-the causal probe as the only human-load core.
-
-## Extra calls (add before running):
--
--
+That is the real update, and it is what section 6 of the deck reports.
