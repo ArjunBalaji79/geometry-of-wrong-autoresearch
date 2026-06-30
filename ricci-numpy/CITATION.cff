@@ -1,0 +1,30 @@
+cff-version: 1.2.0
+title: "ricci-numpy: Ollivier–Ricci curvature on graphs in pure numpy"
+message: "If you use this software, please cite it as below."
+type: software
+authors:
+  - family-names: Balaji
+    given-names: Arjun
+    orcid: "https://orcid.org/0009-0005-1790-0034"
+repository-code: "https://github.com/ArjunBalaji79/ricci-numpy"
+url: "https://github.com/ArjunBalaji79/ricci-numpy"
+license: MIT
+version: "0.1.0"
+date-released: "2026-05-24"
+keywords:
+  - ollivier-ricci-curvature
+  - graph-curvature
+  - optimal-transport
+  - wasserstein-distance
+  - network-simplex
+  - graph-machine-learning
+preferred-citation:
+  type: software
+  title: "ricci-numpy: Ollivier–Ricci curvature on graphs in pure numpy"
+  authors:
+    - family-names: Balaji
+      given-names: Arjun
+      orcid: "https://orcid.org/0009-0005-1790-0034"
+  version: "0.1.0"
+  year: 2026
+  url: "https://github.com/ArjunBalaji79/ricci-numpy"
